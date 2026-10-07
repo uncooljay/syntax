@@ -1,0 +1,106 @@
+%YAML 1.2
+---
+name: GSC
+scope: source.gsc
+version: 2
+
+file_extensions:
+  - gsc
+  - csc
+
+contexts:
+  main:
+    - include: comment-block
+    - include: comment-line
+    - include: directive
+    - include: statement-expression
+    - include: statement
+    - include: function-specifier
+    - include: function-qualified
+    - include: function
+    - include: pointer
+    - include: const
+    - include: object
+    - include: string
+    - include: float
+    - include: integer
+    - include: boolean
+    - include: undefined
+    - include: operator
+
+  comment-block:
+    - match: '/([#@*])'
+      push:
+        - meta_scope: comment
+        - match: '\1/'
+          pop: true
+
+  comment-line:
+    - match: '//'
+      push:
+        - meta_scope: comment
+        - match: '$'
+          pop: true
+
+  directive:
+    - match: '#(animtree|include|using_animtree)\b[^;]*'
+      scope: keyword
+
+  statement-expression:
+    - match: '\b(endon|for|foreach|if|notify|switch|waittill|waittillmatch|while)\b\s*(?=\()'
+      scope: keyword
+
+  statement:
+    - match: '\b(break|case|continue|default|else|in|return|thread|wait|waittillframeend)\b'
+      scope: keyword
+
+  function-specifier:
+    - match: '\b(autoexec|private)\b'
+      scope: storage
+
+  function-qualified:
+    - match: '[A-Za-z_][\w\\/]*(?=::)'
+      scope: entity
+
+  function:
+    - match: '[A-Za-z_]\w*\s*(?=\()'
+      scope: entity
+
+  pointer:
+    - match: '(?<=::)[A-Za-z_]\w*'
+      scope: entity
+
+  const:
+    - match: '\bconst\b'
+      scope: storage
+
+  object:
+    - match: '\b(self|level|game|anim)\b'
+      scope: variable
+
+  string:
+    - match: '"'
+      push:
+        - meta_scope: string
+        - match: '"'
+          pop: true
+
+  float:
+    - match: '(?<!\w)-?\d+\.\d+'
+      scope: constant
+
+  integer:
+    - match: '(?<!\w)-?\d+\b'
+      scope: constant
+
+  boolean:
+    - match: '\b(true|false)\b'
+      scope: constant
+
+  undefined:
+    - match: '\bundefined\b'
+      scope: constant
+
+  operator:
+    - match: '[+\-*\/%=<>!&|^~]'
+      scope: keyword
