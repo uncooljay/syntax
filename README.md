@@ -20,5 +20,9 @@ A fresh coat of color for your code! Give every keyword, function, string, and o
 | undefined | `var = undefined;` |
 | operator | `+ - * / % ++ --`, `= += -= /= %= &= \|= ^= <<= >>=`, `== != < > <= >=`, `&& \|\| !`, and `& \| ^ ~ << >>` |
 
+> [!WARNING]
+> operator uses a very loose match `[+\-*\/%=<>!&|^~]`, so everything is valid.
+> feel free to fork this project and add full gsc-tool support. personally never use most of those features, so they were not a priority. this includes things like do-while loops and preprocessor directives. since hardly anyone uses headers or similar functionality, i've only implemented the bare essentials needed for gsc/csc development. the primary goal was retail compatibility, so the ternary operator is also unsupported because the retail compiler does not support it.
+
 > [!IMPORTANT]
 > cooljay really likes hella men!
