@@ -6,6 +6,7 @@ A fresh coat of color for your code! Give every keyword, function, string, and o
 | comment block | `/* comment block */`, `/@ comment documentation @/`, and `/# developer block #/`|
 | comment line | `// comment line` |
 | directive | `#include path\file;`, `#using_animtree( "anim" )`, and `#animtree` |
+| statement | `break;`, `case 1:`, `continue;`, `default:`, `else`, `endon( ... )`, `for( ... )`, `foreach( ... )`, `if( ... )`, `in`, `notify( ... )`, `return 1;`, `switch( ... )`, `thread foo();`, `wait 1;`, `waittill( ... )`, `waittillframeend;`, `waittillmatch( ... )`, and finally `while( ... )` |
 | specifier | `private foo()` or `autoexec foo()` retail |
 | qualified function | `var = path\file::foo;` and `var = path\file::foo();` |
 | function | `var = foo();` and yes this also handles the declaring function |
