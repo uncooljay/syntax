@@ -6,7 +6,9 @@ version: 2
 
 file_extensions:
   - gsc
+  - gsh
   - csc
+  - csh
 
 contexts:
   main:
@@ -60,7 +62,7 @@ contexts:
       scope: entity
 
   function:
-    - match: '[A-Za-z_]\w*\s*(?=\()'
+    - match: '[A-Za-z_]\w*(?=\()'
       scope: entity
 
   pointer:
