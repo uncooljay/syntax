@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-name: GSC
+name: Treyarch
 scope: source.gsc
 version: 2
 
@@ -13,7 +13,6 @@ contexts:
     - include: comment-block
     - include: comment-line
     - include: directive
-    - include: statement-expression
     - include: statement
     - include: function-specifier
     - include: function-qualified
@@ -43,19 +42,17 @@ contexts:
           pop: true
 
   directive:
-    - match: '#(animtree|include|using_animtree)\b[^;]*'
-      scope: keyword
-
-  statement-expression:
-    - match: '\b(endon|for|foreach|if|notify|switch|waittill|waittillmatch|while)\b\s*(?=\()'
+    - match: '#(animtree|define|elif|elifdef|elifndef|else|endif|if|ifdef|ifndef|include|inline|insert|using|using_animtree)\b[^;]*'
       scope: keyword
 
   statement:
+    - match: '\b(endon|for|foreach|if|notify|switch|waittill|waittillmatch|while)\b\s*(?=\()'
+      scope: keyword
     - match: '\b(break|case|continue|default|else|in|return|thread|wait|waittillframeend)\b'
       scope: keyword
 
   function-specifier:
-    - match: '\b(autoexec|private)\b'
+    - match: '\b(autoexec|function|private)\b'
       scope: storage
 
   function-qualified:
@@ -67,7 +64,7 @@ contexts:
       scope: entity
 
   pointer:
-    - match: '(?<=::)[A-Za-z_]\w*'
+    - match: '(?<=::|&)[A-Za-z_]\w*'
       scope: entity
 
   const:
@@ -75,7 +72,7 @@ contexts:
       scope: storage
 
   object:
-    - match: '\b(self|level|game|anim)\b'
+    - match: '\b(anim|game|level|self)\b'
       scope: variable
 
   string:
@@ -94,7 +91,7 @@ contexts:
       scope: constant
 
   boolean:
-    - match: '\b(true|false)\b'
+    - match: '\b(false|true)\b'
       scope: constant
 
   undefined:
