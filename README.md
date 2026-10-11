@@ -1,4 +1,4 @@
-# Black Ops II: Sublime Syntax
+# Black Ops II and Black Ops III: Sublime Syntax
 A fresh coat of color for your code! Give every keyword, function, string, and operator its own little spotlight, turning messy lines of script into something clean, colorful, and much easier on the eyes. Because even your code deserves to look pretty while it works.
 
 | Feature | Example |
@@ -22,7 +22,7 @@ A fresh coat of color for your code! Give every keyword, function, string, and o
 
 > [!WARNING]
 > operator uses a very loose match `[+\-*\/%=<>!&|^~]`, so everything is valid.
-> feel free to fork this project and add full gsc-tool support. personally never use most of those features, so they were not a priority. this includes things like do-while loops and preprocessor directives. since hardly anyone uses headers or similar functionality, i've only implemented the bare essentials needed for gsc/csc development. the primary goal was retail compatibility, so the ternary operator is also unsupported because the retail compiler does not support it.
+> feel free to fork this project and add full gsc-tool support. personally never use most of those features, so they were not a priority. this includes things like do-while loops but I added some of the directives. i've only implemented the bare essentials needed for gsc/csc development. the primary goal was retail compatibility, so the ternary operator is also unsupported because the retail compiler does not support it.
 
 > [!IMPORTANT]
 > cooljay really likes hella men!
